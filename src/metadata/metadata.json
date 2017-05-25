@@ -1,0 +1,63 @@
+{
+  "package": "Unplugg",
+  "tagline": "Unplugg API",
+  "description": "",
+  "image": "https://logo.clearbit.com/unplu.gg",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Unplugg-Package",
+  "keywords": [
+    "API",
+    "Unplugg",
+    "forecast"
+  ],
+  "accounts": {
+    "domain": "unplu.gg",
+    "credentials": [
+      "accessToken"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getForecast",
+      "description": "With Unplugg’s API you can request a forecast based on a provided timeseries. ",
+      "args": [
+        {
+        "name": "accessToken",
+        "type": "credentials",
+        "info": "Your Unplugg access token",
+        "required": true
+        },
+        {
+          "name": "timestamp",
+          "type": "Number",
+          "info": "Timestamps in Unix time format.",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "info": "Integer or float value for specified timestamp.",
+          "required": true
+        },
+        {
+          "name": "callback",
+          "type": "String",
+          "info": "Link to which the job payload will be sent",
+          "required": true
+        },
+        {
+          "name": "forecastTo",
+          "type": "String",
+          "info": "Timestamps in Unix time format (seconds)",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    }
+  ]
+}
