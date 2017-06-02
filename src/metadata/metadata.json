@@ -15,6 +15,24 @@
       "accessToken"
     ]
   },
+  "events": [
+    {
+    "name": "forecastCommand",
+    "description": "This method is called every time a user posts a slash command in a channel",
+    "payload": {},
+    "steps": [
+      "Navigate to getForecast block",
+      "Set callback to __WEBHOOK_URL__"
+    ],
+    "args": [
+      {
+        "name": "command",
+        "type": "string",
+        "info": "Forecast command",
+        "required": false
+      }
+    ]
+  }],
   "blocks": [{
     "name": "getForecast",
     "description": "With Unplugg’s API you can request a forecast based on a provided timeseries. ",
@@ -63,17 +81,5 @@
       "name": "success",
       "info": "Success"
     }]
-  }],
-  "events": [{
-    "name": "forecastCommand",
-    "description": "This method is called every time a user posts a slash command in a channel",
-    "payload": {},
-    "steps": [
-      "Navigate to getForecast block",
-      "Set callback to __WEBHOOK_URL__"
-    ],
-    "args": [
-
-    ]
   }]
 }
