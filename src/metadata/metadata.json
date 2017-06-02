@@ -15,72 +15,65 @@
       "accessToken"
     ]
   },
-  "blocks": [
-    {
-      "name": "getForecast",
-      "description": "With Unplugg’s API you can request a forecast based on a provided timeseries. ",
-      "args": [
-        {
-        "name": "accessToken",
-        "type": "credentials",
-        "info": "Your Unplugg access token",
-        "required": true
-        },
-        {
-          "name": "timeSeries",
-          "type": "Array",
-          "info": "Time series data will be a list of values with associated timestamps.",
-          "required": true,
-          "structure": [
-            {
-              "name": "timestamp",
-              "type": "String",
-              "info": "Timestamp string",
-              "required": false
-            },
-            {
-              "name": "value",
-              "type": "String",
-              "info": "Value string",
-              "required": true
-            }
-          ]
-        },
-        {
-          "name": "callback",
+  "blocks": [{
+    "name": "getForecast",
+    "description": "With Unplugg’s API you can request a forecast based on a provided timeseries. ",
+    "args": [{
+      "name": "accessToken",
+      "type": "credentials",
+      "info": "Your Unplugg access token",
+      "required": true
+    },
+      {
+        "name": "timeSeries",
+        "type": "Array",
+        "info": "Time series data will be a list of values with associated timestamps.",
+        "required": true,
+        "structure": [{
+          "name": "timestamp",
           "type": "String",
-          "info": "Link to which the job payload will be sent",
-          "required": true
+          "info": "Timestamp string",
+          "required": false
         },
-        {
-          "name": "forecastTo",
-          "type": "String",
-          "info": "Timestamps in Unix time format (seconds)",
-          "required": true
-        }
-      ],
-      "callbacks": [{
-        "name": "error",
-        "info": "Error"
-      }, {
-        "name": "success",
-        "info": "Success"
-      }]
-    }
-  ],
-  "events": [
-    {
-      "name": "forecastCommand",
-      "description": "This method is called every time a user posts a slash command in a channel",
-      "payload": {   // This will be displayed in the Marketplace as an example of what the API provider sends
+          {
+            "name": "value",
+            "type": "String",
+            "info": "Value string",
+            "required": true
+          }
+        ]
       },
-      "steps": [
-        "Navigate to getForecast block",
-        "Set callback to __WEBHOOK_URL__"
-      ],
-      "args": [
+      {
+        "name": "callback",
+        "type": "String",
+        "info": "Link to which the job payload will be sent",
+        "required": true
+      },
+      {
+        "name": "forecastTo",
+        "type": "String",
+        "info": "Timestamps in Unix time format (seconds)",
+        "required": true
+      }
+    ],
+    "callbacks": [{
+      "name": "error",
+      "info": "Error"
+    }, {
+      "name": "success",
+      "info": "Success"
+    }]
+  }],
+  "events": [{
+    "name": "forecastCommand",
+    "description": "This method is called every time a user posts a slash command in a channel",
+    "payload": {},
+    "steps": [
+      "Navigate to getForecast block",
+      "Set callback to __WEBHOOK_URL__"
+    ],
+    "args": [
 
-      ]
-    }
-  ]
+    ]
+  }]
 }
