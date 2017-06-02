@@ -16,6 +16,6 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         
-        'api_url' => ' https://api.unplu.gg/'
+        'api_url' => 'https://api.unplu.gg/'
     ],
 ];

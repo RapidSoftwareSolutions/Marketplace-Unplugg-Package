@@ -27,16 +27,24 @@
         "required": true
         },
         {
-          "name": "timestamp",
-          "type": "Number",
-          "info": "Timestamps in Unix time format.",
-          "required": true
-        },
-        {
-          "name": "value",
-          "type": "String",
-          "info": "Integer or float value for specified timestamp.",
-          "required": true
+          "name": "timeSeries",
+          "type": "Array",
+          "info": "Time series data will be a list of values with associated timestamps.",
+          "required": true,
+          "structure": [
+            {
+              "name": "timestamp",
+              "type": "String",
+              "info": "Timestamp string",
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "String",
+              "info": "Value string",
+              "required": true
+            }
+          ]
         },
         {
           "name": "callback",

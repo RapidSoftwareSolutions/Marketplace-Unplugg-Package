@@ -4,7 +4,7 @@ $app->post('/api/Unplugg/getForecast', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['accessToken','timestamp','value','callback','forecastTo']);
+    $validateRes = $checkRequest->validate($request, ['accessToken','timeSeries','callback','forecastTo']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -14,7 +14,10 @@ $app->post('/api/Unplugg/getForecast', function ($request, $response) {
 
     $data['forecast_to'] = $post_data['args']['forecastTo'];
     $data['callback'] = $post_data['args']['callback'];
-    $data[] = ["timestamp"=>$post_data['args']['timestamp'], "value"=>$post_data['args']['value']];
+    $timeSeries = $post_data['args']['timeSeries'];
+    foreach ($timeSeries as $item){
+        $data['data'][] = ["timestamp"=>intval($item['timestamp']), "value"=>intval($item['value'])];
+    }
 
     $query_str = $settings['api_url'] . "forecast";
     $client = $this->httpClient;
