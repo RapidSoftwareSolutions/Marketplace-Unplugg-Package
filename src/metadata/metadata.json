@@ -59,5 +59,20 @@
         "info": "Success"
       }]
     }
+  ],
+  "events": [
+    {
+      "name": "forecastCommand",
+      "description": "This method is called every time a user posts a slash command in a channel",
+      "payload": {   // This will be displayed in the Marketplace as an example of what the API provider sends
+      },
+      "steps": [
+        "Navigate to getForecast block",
+        "Set callback to __WEBHOOK_URL__"
+      ],
+      "args": [
+
+      ]
+    }
   ]
 }

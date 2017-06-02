@@ -1,6 +1,7 @@
 <?php
 $routes = [
     'getForecast',
+    'forecastCommand',
     'metadata'
 ];
 foreach($routes as $file) {
