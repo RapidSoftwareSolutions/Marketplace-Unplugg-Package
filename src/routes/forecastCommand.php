@@ -1,7 +1,7 @@
 <?php
 
 $app->post('/api/Unplugg/forecastCommand', function ($request, $response) {
-    $body = $request->getParsedBody();
+    $body = $request->getBody();
     $result['contextWrites']['to']['http_resp'] = "ok";
     $result['contextWrites']['to']['client_msg'] = $body['body'];
     $result['contextWrites']['to']['params']['token'] = $body['params']['token'];
