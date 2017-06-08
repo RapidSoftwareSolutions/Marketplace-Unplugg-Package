@@ -1,6 +1,6 @@
 <?php
 
 $app->post('/api/Unplugg/forecastCommand', function ($request, $response) {
-    print_r($request->getBody());
-    return $response->withStatus(200);
+    $params =  $request->getParsedBody();
+    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($params);
 });
