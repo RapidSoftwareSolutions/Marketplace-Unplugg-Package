@@ -26,10 +26,10 @@
     ],
     "args": [
       {
-        "name": "command",
+        "name": "token",
         "type": "string",
-        "info": "Forecast command",
-        "required": false
+        "info": "Token sent on each message",
+        "required": true
       }
     ]
   }],
