@@ -2,12 +2,13 @@
 
 $app->post('/api/Unplugg/forecastCommand', function ($request, $response) {
 
-    $result['callback'] = "success";
+    $body = $request->getParsedBody();
 
+    $result['callback'] = "success";
     $resp['http_resp'] = "ok";
     $resp['client_msg'] = "text";
-    $resp['params'] = $request->params;
+    $resp['params'] = $body['params'];
 
-    $result['contextWrites'] = json_encode($resp);
+    $result['contextWrites'] = $resp;
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 });
