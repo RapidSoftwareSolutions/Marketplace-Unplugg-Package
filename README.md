@@ -4,10 +4,10 @@
 * Domain: [unplu.gg](https://unplu.gg)
 * Credentials: accessToken
 
-## How to get credentials: 
-0. Item one 
-1. Item two
- 
+## How to get credentials:
+1. Navigate to [https://unplu.gg](https://unplu.gg/test_api.html)
+2. Enter you e-mail
+3. Access token will be sent to your address
 ## Unplugg.getForecast
 With Unplugg’s API you can request a forecast based on a provided timeseries. 
 
