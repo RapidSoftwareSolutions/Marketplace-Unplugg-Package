@@ -1,20 +1,20 @@
 <?php
 $app->post('/api/Unplugg/forecastCommand', function ($request, $response) {
 
-    $data = $request->getBody();
-
-    function normalizeJson($jsonObject)
-    {
-        return preg_replace_callback('~"([\[{].*?[}\]])"~s', function ($match) {
-            return preg_replace('~\s*"\s*~', "\"", $match[1]);
-        }, $jsonObject);
+ $checkRequest = $this->validation;
+    $validateRes = $checkRequest->validate($request, []);
+    if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
+        return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
+    } else {
+        $post_data = $validateRes;
     }
-
-    $data = json_decode(normalizeJson($data));
-
-    $result['contextWrites']['to']['http_resp'] = "ok";
-    $result['contextWrites']['to']['client_msg'] = $data->body;
-    $result['contextWrites']['to']['params']['token'] = $data->params->token;
-    $result['contextWrites']['to'] = json_encode($result['contextWrites']['to']);
+    $reply = [
+        "http_resp" => "",
+        "client_msg" => $post_data['args']['body'],
+        "params" => $post_data['args']['params']
+    ];
+    $result['callback'] = 'success';
+    $result['contextWrites']['to'] = $reply;
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+
 });
