@@ -12,7 +12,7 @@ $app->post('/api/Unplugg/getForecast', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $data['forecast_to'] = $post_data['args']['forecastTo'];
+    $data['forecast_to'] = intval($post_data['args']['forecastTo']);
     $data['callback'] = $post_data['args']['callback'];
     $timeSeries = $post_data['args']['timeSeries'];
     foreach ($timeSeries as $item){
