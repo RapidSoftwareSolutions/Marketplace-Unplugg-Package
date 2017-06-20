@@ -34,7 +34,7 @@
 ## Unplugg.getForecast
 With Unplugg’s API you can request a forecast based on a provided timeseries.
 Create a new webhook. You can use our service as webhookUrl:
-```https://webhooks.rapidapi.com/api/message/Unplugg/forecastCommand/{projectName}/{projectKey} * see credentials description above```
+```https://webhooks.rapidapi.com/api/message/Unplugg/forecastCommand/{projectName}/{projectKey}``` * see credentials description above
 
 | Field      | Type       | Description
 |------------|------------|----------
