@@ -19,7 +19,16 @@
     {
     "name": "forecastCommand",
     "description": "This method is called every time a user posts a slash command in a channel",
-    "payload": {},
+    "payload":
+    {
+      "forecast": [
+        {"timestamp":1458129600,"value":58.6912515906},
+        {"timestamp":1458133200,"value":30.5359068808},
+        {"timestamp":1458136800,"value":36.7927021395},
+        {"timestamp":1458140400,"value":48.7672586419}
+      ],
+      "job_id": "y0urJ0b1d"
+    },
     "steps": [
       "Navigate to getForecast block",
       "Set callback to __WEBHOOK_URL__"
